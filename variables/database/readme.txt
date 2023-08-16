@@ -1,0 +1,1 @@
+This folder is for using file based databases like Sqlite! If you want to store Database connection information, use the config folder

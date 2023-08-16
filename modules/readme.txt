@@ -1,0 +1,1 @@
+modules, also referred to as cogs in nextcord are seperate bot functions governed by individual classes

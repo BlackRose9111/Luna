@@ -1,0 +1,1 @@
+#objects can be json or database related. Json objects should be managed by the filemanager class in system

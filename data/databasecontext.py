@@ -1,4 +1,4 @@
-# manage your database connections here, low level actions only
+# manage your database.db connections here, low level actions only
 import sqlite3
 
 
@@ -6,8 +6,8 @@ class DatabaseContext:
     def __init__(self):
         self.connection = None
         self.cursor = None
-        self.database_name = "database.db"
-        self.database_path = "data/database.db"
+        self.database_name = "database.db.db"
+        self.database_path = "data/database.db.db"
 
     def connect(self):
         self.connection = sqlite3.connect(self.database_path)

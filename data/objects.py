@@ -1,7 +1,8 @@
-# objects can be json or database related. Json objects should be managed by the filemanager class in system
+# objects can be json or database.db related. Json objects should be managed by the filemanager class in system
 
 class DataObject:
     id : int
+
     def __init__(self):
         pass
 
@@ -25,6 +26,7 @@ class DataObject:
     @staticmethod
     def get_all_by(**kwargs) -> list:
         pass
+
 
 
 

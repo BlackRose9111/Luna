@@ -1,3 +1,4 @@
 nextcord[voice]~=2.5.0
 Flask~=2.3.2
 pytz
+pyttsx3

@@ -7,7 +7,7 @@ import os
 owner_ids = [240027656949596160, 1068287199688278166]
 bot_name = "Luna"
 bot_time_zone = "Europe/Istanbul"
-bot = commands.AutoShardedBot(command_prefix="!",
+bot = commands.AutoShardedBot(command_prefix="*",
                               strip_after_prefix=True,
                               case_insensitive=True,
                               intents=nextcord.Intents.all(),
@@ -30,7 +30,7 @@ def database_connect():
     pass
 
 
-def database_keepalive():
+async def database_keepalive():
     pass
 
 
@@ -38,7 +38,7 @@ def database_keepalive():
 async def parallel_loop():
     global run_time
     run_time += 1
-    database_keepalive()
+    await database_keepalive()
 
 def get_token():
     global TOKEN

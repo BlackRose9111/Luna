@@ -25,6 +25,10 @@ async def on_ready():
     parallel_loop.start()
     database_connect()
 
+@bot.event
+async def on_edit(message):
+    #run on message event for the edited message
+    await bot.process_commands(message)
 
 def database_connect():
     pass

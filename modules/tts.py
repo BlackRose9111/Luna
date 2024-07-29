@@ -2,6 +2,10 @@ from nextcord.ext import commands
 import nextcord
 #maybe instead of gtts I should use pyttsx3
 import pyttsx3
+from nextcord.ext.commands import Context
+
+from modules import ai
+from prompt import Prompt
 
 
 class LunaTTS(commands.Cog):
@@ -43,8 +47,17 @@ class LunaTTS(commands.Cog):
         self.engine.save_to_file(text,"tts.mp3")
         self.engine.runAndWait()
         voice_client = ctx.voice_client
+        if voice_client is None:
+            #join the voice channel the user is in, if it already is in the same voice channel, do nothing
+            voice_channel = ctx.author.voice.channel
+            await voice_channel.connect()
         voice_client.play(nextcord.FFmpegPCMAudio("tts.mp3"))
 
+
+    @commands.command()
+    async def speak(self, ctx : Context, *, args):
+        await ctx.message.delete()
+        await ctx.send(args)
 
 
 def setup(client):

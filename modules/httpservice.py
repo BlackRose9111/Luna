@@ -21,15 +21,24 @@ class httpservice(Cog):
 
 
     def start_server(self):
-        self.app.run(host="0.0.0.0", port=64000, debug=False)
+        self.app.run(host="0.0.0.0", port=65002, debug=False)
         #uvicorn.run(self.app,host="0.0.0.0",port=65000)
 
 
     def add_paths(self):
-        self.app.add_url_rule("/test", "test", self.test)
+        self.app.add_url_rule("/getdata",methods=["GET"],view_func=self.get_collected_data)
+
+
 
     def test(self):
         return "test"
+    def get_collected_data(self):
+        #return the dataset.json file
+        #this is a flask route
+        file_path = "variables/dataset.json"
+        with open(file_path,"r") as file:
+            return flask.jsonify(flask.json.load(file))
+
 
 def setup(bot):
     bot.add_cog(httpservice(bot))
